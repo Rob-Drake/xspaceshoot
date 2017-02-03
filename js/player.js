@@ -15,5 +15,21 @@ xSpaceShoot.Player.prototype.setWeapon = function(weap) {
 };
 
 xSpaceShoot.Player.prototype.fire = function() {
-	this.weapon.fire(); 	//look up parameters needed
+	this.weapon.fire(this.player); 	//look up parameters needed
+};
+
+xSpaceShoot.Player.prototype.moveDown = function() {
+	this.player.y += 5;
+};
+
+xSpaceShoot.Player.prototype.moveUp = function() {
+	this.player.y -= 5;
+};
+
+xSpaceShoot.Player.prototype.moveRight = function() {
+	this.player.x += 5;
+};
+
+xSpaceShoot.Player.prototype.moveLeft = function() {
+	this.player.x -= 5;
 };

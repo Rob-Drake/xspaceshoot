@@ -11,27 +11,25 @@ xSpaceShoot.Game.prototype = {
 		this.weapons.push(new xSpaceShoot.Weapon.SingleBullet(this.game));
 		this.weapons.push(new xSpaceShoot.Weapon.ThreeWay(this.game));
 		this.weapons.push(new xSpaceShoot.Weapon.EightWay(this.game));
+		this.player = new Player(this.game, 'ship', this.weapons[0]);
 	},
 	create: function() {
-		this.player = this.game.add.sprite(128, 256, 'ship');
-		this.player.anchor.setTo(0.5, 0.5);
-		this.player.checkWorldBounds = true;
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
-			this.player.y -= 1;
+			this.player.moveUp();
 		}
 		if(this.cursors.right.isDown) {
-			this.player.x += 1;
+			this.player.moveRight();
 		}
 		if(this.cursors.down.isDown) {
-			this.player.y += 1;
+			this.player.moveDown();
 		}
 		if(this.cursors.left.isDown) {
-			this.player.x -= 1;
+			this.player.moveLeft();
 		}
 		if(this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-			this.weapons[1].fire(this.player);
+			this.player.fire();
 		}
 	}
 };
