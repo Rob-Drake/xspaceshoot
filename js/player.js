@@ -1,10 +1,9 @@
 var xSpaceShoot = xSpaceShoot || {};
 
 xSpaceShoot.Player = function(game, key) {
-	Phaser.Sprite.call(this. game, 0, 0, key);
+	Phaser.Sprite.call(this, game, 128, 256, key);
 	this.texture.baseTexture.scaleMode = PIXI.scaleModes.NEAREST;
 	this.anchor.set(0.5, 0.5);
-	this.weapon = weap;
 };
 
 xSpaceShoot.Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -15,7 +14,7 @@ xSpaceShoot.Player.prototype.setWeapon = function(weap) {
 };
 
 xSpaceShoot.Player.prototype.fire = function() {
-	this.weapon.fire(this.player); 	//look up parameters needed
+	this.weapon.fire(this); 	//look up parameters needed
 };
 
 xSpaceShoot.Player.prototype.moveDown = function() {

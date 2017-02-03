@@ -11,11 +11,11 @@ xSpaceShoot.Game.prototype = {
 		this.weapons.push(new xSpaceShoot.Weapon.SingleBullet(this.game));
 		this.weapons.push(new xSpaceShoot.Weapon.ThreeWay(this.game));
 		this.weapons.push(new xSpaceShoot.Weapon.EightWay(this.game));
-		this.player = new xSpaceShoot.Player(xSpaceShoot.game, 'ship');
+		this.player = new xSpaceShoot.Player(this.game, 'ship');
 		this.player.setWeapon(this.weapons[0]);
 	},
 	create: function() {
-		this.game.add(this.player);
+		this.game.add.existing(this.player);
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
