@@ -14,21 +14,21 @@ xSpaceShoot.Player.prototype.setWeapon = function(weap) {
 };
 
 xSpaceShoot.Player.prototype.fire = function() {
-	this.weapon.fire(this); 	//look up parameters needed
+	this.weapon.fire(this);
 };
 
 xSpaceShoot.Player.prototype.moveDown = function() {
-	this.player.y += 5;
+	this.position.y += 5;
 };
 
 xSpaceShoot.Player.prototype.moveUp = function() {
-	this.player.y -= 5;
+	this.position.y -= 5;
 };
 
 xSpaceShoot.Player.prototype.moveRight = function() {
-	this.player.x += 5;
+	this.position.x += 5;
 };
 
 xSpaceShoot.Player.prototype.moveLeft = function() {
-	this.player.x -= 5;
+	this.position.x -= 5;
 };
