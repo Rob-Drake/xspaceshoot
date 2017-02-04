@@ -19,12 +19,14 @@ xSpaceShoot.Game.prototype = {
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
+			this.checkScreenY(this.player);
 			this.player.moveUp();
 		}
 		if(this.cursors.right.isDown) {
 			this.player.moveRight();
 		}
 		if(this.cursors.down.isDown) {
+			this.checkScreenY(this.player);
 			this.player.moveDown();
 		}
 		if(this.cursors.left.isDown) {
@@ -32,6 +34,14 @@ xSpaceShoot.Game.prototype = {
 		}
 		if(this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 			this.player.fire();
+		}
+	},
+	checkScreenY : function(sprite) {
+		if(this.player.position.y < 0) {
+			this.player.position.y = this.game.height;
+		}
+		if(this.player.position.y > this.game.height) {
+			this.player.position.y = 0;
 		}
 	}
 };

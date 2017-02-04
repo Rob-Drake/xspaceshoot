@@ -8,5 +8,6 @@ xSpaceShoot.Asteroid = function(game, key) {
 
 xSpaceShoot.Asteroid.prototype = Object.create(Phaser.Sprite.prototype);
 xSpaceShoot.Asteroid.prototype.constructor = xSpaceShoot.Asteroid;
-
+xSpaceShoot.Asteroid.prototype.update = function() {
+};
 
