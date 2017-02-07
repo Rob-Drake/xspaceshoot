@@ -13,9 +13,12 @@ xSpaceShoot.Game.prototype = {
 		this.weapons.push(new xSpaceShoot.Weapon.EightWay(this.game));
 		this.player = new xSpaceShoot.Player(this.game, 'ship');
 		this.player.setWeapon(this.weapons[0]);
+		this.asteroidspawner = new xSpaceShoot.AsteroidLaunch.Spawn.spawn();
+
 	},
 	create: function() {
 		this.game.add.existing(this.player);
+		this.game.add.existing(this.asteroidspawner);
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
