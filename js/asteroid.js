@@ -45,9 +45,9 @@ xSpaceShoot.AsteroidLaunch.Spawn.prototype = Object.create(Phaser.Group.prototyp
 xSpaceShoot.AsteroidLaunch.Spawn.prototype.constructor =
 	xSpaceShoot.AsteroidLaunch.Spawn;
 xSpaceShoot.AsteroidLaunch.Spawn.spawn = function() {
-	if( this.game.time.time < this.nextSpawn) {
-		return;
-	}
+	//if( this.game.time.time < this.nextSpawn) {
+	//	return;
+	//}
 	this.getFirstExists(false).spawn(x, y, 0, this.speed, 0, 0);
 	this.nextSpawn = this.game.time.time + this.spawnRate;
 };
