@@ -16,7 +16,8 @@ xSpaceShoot.Game.prototype = {
 	},
 	create: function() {
 		this.game.add.existing(this.player);
-		this.asteroid.setPosition( 100, 100);
+		this.game.physics.enable(this.player);
+		this.asteroid.setPosition( 400, 100);
 		this.asteroid.exists = true;
 		this.game.add.existing(this.asteroid);
 	},
