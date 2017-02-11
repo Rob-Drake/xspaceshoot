@@ -35,7 +35,7 @@ xSpaceShoot.Game.prototype = {
 		}
 		if(this.cursors.right.isDown) {
 			this.player.moveRight();
-			player.scale.x = 1;
+			this.player.scale.x = 1;
 		}
 		if(this.cursors.left.isDown) {
 			this.player.moveLeft();

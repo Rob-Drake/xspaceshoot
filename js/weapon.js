@@ -60,7 +60,9 @@ xSpaceShoot.Weapon.SingleBullet.prototype.fire = function(source) {
 	}
 	var x = source.x + 10;
 	var y = source.y + 10;
-	this.getFirstExists(false).fire(x, y, 0, this.bulletSpeed, 0, 0);
+	var shot = this.getFirstExists(false)
+	shot.scale = source.scale.x;
+	shot.fire(x, y, 0, this.bulletSpeed, 0, 0);
 	this.nextFire = this.game.time.time + this.fireRate;
 };
 
