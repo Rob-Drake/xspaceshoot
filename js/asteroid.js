@@ -23,31 +23,15 @@ xSpaceShoot.Asteroid.prototype.spawn = function(x, y, angle, speed, gx, xy) {
 
 	this.scale.set(1);
 
-	this.game.physics.arcade.velocityFromAngle( angle, speed, this, body.velocity);
+	this.game.physics.arcade.velocityFromAngle( x. y, angle, speed, gx, gy);
 
 	this.angle = angle;
 
 	this.body.gravity.set(gx, gy);
 };
 
-xSpaceShoot.AsteroidLaunch = {};
+xSpaceShoot.Asteroid.prototype.setPosition = function( x, y) {
+	this.x = x;
+	this.y = y;
+}
 
-xSpaceShoot.AsteroidLaunch.Spawn = function(game) {
-	Phaser.Group.call(this, game, game.world, 'Spawn', false, true, Phaser.Physics.ARCADE);
-	this.speed = 500;
-
-	for(var i=0; i<20; i++) {
-		this.add(new xSpaceShoot.Asteroid(game, 'asteroid'), true);
-	}
-	return this;
-};
-xSpaceShoot.AsteroidLaunch.Spawn.prototype = Object.create(Phaser.Group.prototype);
-xSpaceShoot.AsteroidLaunch.Spawn.prototype.constructor =
-	xSpaceShoot.AsteroidLaunch.Spawn;
-xSpaceShoot.AsteroidLaunch.Spawn.spawn = function() {
-	//if( this.game.time.time < this.nextSpawn) {
-	//	return;
-	//}
-	this.getFirstExists(false).spawn(x, y, 0, this.speed, 0, 0);
-	this.nextSpawn = this.game.time.time + this.spawnRate;
-};

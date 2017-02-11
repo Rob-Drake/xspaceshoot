@@ -10,15 +10,15 @@ xSpaceShoot.Game.prototype = {
 		this.weapons = [];
 		this.weapons.push(new xSpaceShoot.Weapon.SingleBullet(this.game));
 		this.weapons.push(new xSpaceShoot.Weapon.ThreeWay(this.game));
-		this.weapons.push(new xSpaceShoot.Weapon.EightWay(this.game));
 		this.player = new xSpaceShoot.Player(this.game, 'ship');
 		this.player.setWeapon(this.weapons[0]);
-		this.asteroidspawner = new xSpaceShoot.AsteroidLaunch.Spawn.spawn();
-
+		this.asteroid = new xSpaceShoot.Asteroid(this.game, 'asteroid');
 	},
 	create: function() {
 		this.game.add.existing(this.player);
-		this.game.add.existing(this.asteroidspawner);
+		this.asteroid.setPosition( 100, 100);
+		this.asteroid.exists = true;
+		this.game.add.existing(this.asteroid);
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
@@ -28,12 +28,12 @@ xSpaceShoot.Game.prototype = {
 		if(this.cursors.right.isDown) {
 			this.player.moveRight();
 		}
+		if(this.cursors.left.isDown) {
+			this.player.moveLeft();
+		}
 		if(this.cursors.down.isDown) {
 			this.checkScreenY(this.player);
 			this.player.moveDown();
-		}
-		if(this.cursors.left.isDown) {
-			this.player.moveLeft();
 		}
 		if(this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 			this.player.fire();

@@ -1,3 +1,7 @@
+/*
+ * Change this file to be compatible with test
+ */
+
 var xSpaceShoot = xSpaceShoot || {};
 xSpaceShoot.game = new Phaser.Game(512, 512, Phaser.AUTO, 'gameDiv');
 xSpaceShoot.game.state.add('Boot', xSpaceShoot.Boot);
