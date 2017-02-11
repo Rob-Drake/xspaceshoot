@@ -15,11 +15,18 @@ xSpaceShoot.Game.prototype = {
 		this.asteroid = new xSpaceShoot.Asteroid(this.game, 'asteroid');
 	},
 	create: function() {
+		this.game.world.setBounds(0, 0, 800 * 8, 600);
+		this.stars = this.game.add.group();
+		for(var i = 0; i < 128; i++) {
+			this.stars.create(this.game.randomX, this.game.randomY, 'star');
+		}
+
 		this.game.add.existing(this.player);
-		this.game.physics.enable(this.player);
-		this.asteroid.setPosition( 400, 100);
-		this.asteroid.exists = true;
-		this.game.add.existing(this.asteroid);
+		this.player.anchor.x = 0.5;
+
+		this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1);
+
+		this.prevCamX = this.game.camera.x;
 	},
 	update: function() {
 		if(this.cursors.up.isDown) {
@@ -28,9 +35,11 @@ xSpaceShoot.Game.prototype = {
 		}
 		if(this.cursors.right.isDown) {
 			this.player.moveRight();
+			player.scale.x = 1;
 		}
 		if(this.cursors.left.isDown) {
 			this.player.moveLeft();
+			this.player.scale.x = -1;
 		}
 		if(this.cursors.down.isDown) {
 			this.checkScreenY(this.player);

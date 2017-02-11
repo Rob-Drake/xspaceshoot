@@ -7,7 +7,7 @@ xSpaceShoot.Boot.prototype = {
 		//this.load.image('preloadbar', 'assets/image/preloader-bar.png');
 	},
 	create: function() {
-		this.game.stage.backgroundColor = '#800';
+		this.game.stage.backgroundColor = '#000';
 		//scaling options
 		//this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		//game centered on screen
