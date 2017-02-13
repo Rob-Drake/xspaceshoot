@@ -22,7 +22,7 @@ xSpaceShoot.Bullet.prototype.fire = function( x, y, angle, speed, gx, gy) {
     gy = gy || 0;
 
     this.reset(x, y);
-    this.scale.set(1);
+	//this.scale.set(1);
 
     this.game.physics.arcade.velocityFromAngle( angle, speed, this.body.velocity);
 
@@ -61,7 +61,7 @@ xSpaceShoot.Weapon.SingleBullet.prototype.fire = function(source) {
 	var x = source.x + 10;
 	var y = source.y + 10;
 	var shot = this.getFirstExists(false)
-	shot.scale = source.scale.x;
+	this.scale = source.scale.x;
 	shot.fire(x, y, 0, this.bulletSpeed, 0, 0);
 	this.nextFire = this.game.time.time + this.fireRate;
 };
