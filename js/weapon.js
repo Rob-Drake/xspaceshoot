@@ -32,7 +32,7 @@ xSpaceShoot.Bullet.prototype.fire = function( x, y, angle, speed, gx, gy) {
 
 };
 
-Bullet.prototype.update  = function() {
+xSpaceShoot.Bullet.prototype.update  = function() {
 	if(this.tracking) {
 		this.rotation = Math.atan2(this.body.velocity.y, this.body.velocity.x);
 	}
@@ -70,9 +70,9 @@ xSpaceShoot.Weapon.SingleBullet.prototype.fire = function(source) {
 	}
 	var x = source.x + 10;
 	var y = source.y + 10;
-	var shot = this.getFirstExists(false)
-	this.scale = source.scale.x;
-	shot.fire(x, y, 0, this.bulletSpeed, 0, 0);
+
+	this.getFirstExists(false).fire(x, y, 0, this.bulletSpeed, 0, 0);
+
 	this.nextFire = this.game.time.time + this.fireRate;
 };
 
