@@ -22,17 +22,15 @@ xSpaceShoot.Bullet.prototype.fire = function( x, y, angle, speed, gx, gy) {
     gy = gy || 0;
 
     this.reset(x, y);
-	//this.scale.set(1);
 
     this.game.physics.arcade.velocityFromAngle( angle, speed, this.body.velocity);
 
     this.angle = angle;
 
     this.body.gravity.set(gx, gy);
-
 };
 
-xSpaceShoot.Bullet.prototype.update  = function() {
+xSpaceShoot.Bullet.prototype.update = function() {
 	if(this.tracking) {
 		this.rotation = Math.atan2(this.body.velocity.y, this.body.velocity.x);
 	}
@@ -40,6 +38,7 @@ xSpaceShoot.Bullet.prototype.update  = function() {
 		this.scale.x += this.scaleSpeed;
 		this.scale.y += this.scaleSpeed;
 	}
+
 };
 
 xSpaceShoot.Weapon = {};
@@ -68,6 +67,7 @@ xSpaceShoot.Weapon.SingleBullet.prototype.fire = function(source) {
 	if(this.game.time.time < this.nextFire) {
 		return;
 	}
+	console.log(source.scale.x);
 	var x = source.x + 10;
 	var y = source.y + 10;
 
